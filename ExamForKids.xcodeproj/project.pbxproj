@@ -12,6 +12,10 @@
 		A2CCC3E41B4E2D4E0067E832 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2CCC3E31B4E2D4E0067E832 /* Images.xcassets */; };
 		A2CCC3E71B4E2D4E0067E832 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2CCC3E51B4E2D4E0067E832 /* LaunchScreen.xib */; };
 		A2CCC3F31B4E2D4E0067E832 /* ExamForKidsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCC3F21B4E2D4E0067E832 /* ExamForKidsTests.m */; };
+		A2CCC3FF1B50B5520067E832 /* RootMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCC3FD1B50B5520067E832 /* RootMenu.m */; };
+		A2CCC4001B50B5520067E832 /* RootMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2CCC3FE1B50B5520067E832 /* RootMenu.xib */; };
+		A2CCC4041B50B8530067E832 /* ContentOfExam.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCC4021B50B8530067E832 /* ContentOfExam.m */; };
+		A2CCC4051B50B8530067E832 /* ContentOfExam.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2CCC4031B50B8530067E832 /* ContentOfExam.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +39,12 @@
 		A2CCC3EC1B4E2D4E0067E832 /* ExamForKidsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExamForKidsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2CCC3F11B4E2D4E0067E832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2CCC3F21B4E2D4E0067E832 /* ExamForKidsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExamForKidsTests.m; sourceTree = "<group>"; };
+		A2CCC3FC1B50B5520067E832 /* RootMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootMenu.h; sourceTree = "<group>"; };
+		A2CCC3FD1B50B5520067E832 /* RootMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootMenu.m; sourceTree = "<group>"; };
+		A2CCC3FE1B50B5520067E832 /* RootMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootMenu.xib; sourceTree = "<group>"; };
+		A2CCC4011B50B8530067E832 /* ContentOfExam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentOfExam.h; sourceTree = "<group>"; };
+		A2CCC4021B50B8530067E832 /* ContentOfExam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentOfExam.m; sourceTree = "<group>"; };
+		A2CCC4031B50B8530067E832 /* ContentOfExam.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentOfExam.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,12 @@
 				A2CCC3E11B4E2D4E0067E832 /* AppDelegate.m */,
 				A2CCC3E31B4E2D4E0067E832 /* Images.xcassets */,
 				A2CCC3E51B4E2D4E0067E832 /* LaunchScreen.xib */,
+				A2CCC3FC1B50B5520067E832 /* RootMenu.h */,
+				A2CCC3FD1B50B5520067E832 /* RootMenu.m */,
+				A2CCC3FE1B50B5520067E832 /* RootMenu.xib */,
+				A2CCC4011B50B8530067E832 /* ContentOfExam.h */,
+				A2CCC4021B50B8530067E832 /* ContentOfExam.m */,
+				A2CCC4031B50B8530067E832 /* ContentOfExam.xib */,
 				A2CCC3DC1B4E2D4E0067E832 /* Supporting Files */,
 			);
 			path = ExamForKids;
@@ -192,6 +208,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2CCC3E71B4E2D4E0067E832 /* LaunchScreen.xib in Resources */,
+				A2CCC4051B50B8530067E832 /* ContentOfExam.xib in Resources */,
+				A2CCC4001B50B5520067E832 /* RootMenu.xib in Resources */,
 				A2CCC3E41B4E2D4E0067E832 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +229,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2CCC3E21B4E2D4E0067E832 /* AppDelegate.m in Sources */,
+				A2CCC4041B50B8530067E832 /* ContentOfExam.m in Sources */,
+				A2CCC3FF1B50B5520067E832 /* RootMenu.m in Sources */,
 				A2CCC3DF1B4E2D4E0067E832 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

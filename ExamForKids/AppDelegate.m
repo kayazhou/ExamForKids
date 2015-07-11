@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "RootMenu.h"
+
 
 @interface AppDelegate ()
 
@@ -18,6 +20,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+
+    RootMenu *rootView = [[RootMenu alloc] init];
+    rootView.title = @"Exam";
+    
+    self.navController = [[UINavigationController alloc] init];
+    [self.navController pushViewController:rootView animated:YES];
+    [self.window addSubview:self.navController.view];
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
