@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Setting</key>
+	<dict>
+		<key>Subtraction</key>
+		<true/>
+		<key>Addition</key>
+		<false/>
+		<key>10-100</key>
+		<false/>
+		<key>0-10</key>
+		<false/>
+	</dict>
+</dict>
+</plist>

@@ -16,6 +16,9 @@
 		A2CCC4001B50B5520067E832 /* RootMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2CCC3FE1B50B5520067E832 /* RootMenu.xib */; };
 		A2CCC4041B50B8530067E832 /* ContentOfExam.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCC4021B50B8530067E832 /* ContentOfExam.m */; };
 		A2CCC4051B50B8530067E832 /* ContentOfExam.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2CCC4031B50B8530067E832 /* ContentOfExam.xib */; };
+		A2CCC4071B50C0EE0067E832 /* setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2CCC4061B50C0EE0067E832 /* setting.plist */; };
+		A2CCC40C1B51F5B70067E832 /* UserDataDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCC40B1B51F5B70067E832 /* UserDataDesign.m */; };
+		A2CCC40F1B521AEE0067E832 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCC40E1B521AEE0067E832 /* UserData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,11 @@
 		A2CCC4011B50B8530067E832 /* ContentOfExam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentOfExam.h; sourceTree = "<group>"; };
 		A2CCC4021B50B8530067E832 /* ContentOfExam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentOfExam.m; sourceTree = "<group>"; };
 		A2CCC4031B50B8530067E832 /* ContentOfExam.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentOfExam.xib; sourceTree = "<group>"; };
+		A2CCC4061B50C0EE0067E832 /* setting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = setting.plist; sourceTree = "<group>"; };
+		A2CCC40A1B51F5B70067E832 /* UserDataDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDataDesign.h; sourceTree = "<group>"; };
+		A2CCC40B1B51F5B70067E832 /* UserDataDesign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDataDesign.m; sourceTree = "<group>"; };
+		A2CCC40D1B521AEE0067E832 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
+		A2CCC40E1B521AEE0067E832 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +101,10 @@
 				A2CCC3FC1B50B5520067E832 /* RootMenu.h */,
 				A2CCC3FD1B50B5520067E832 /* RootMenu.m */,
 				A2CCC3FE1B50B5520067E832 /* RootMenu.xib */,
+				A2CCC40A1B51F5B70067E832 /* UserDataDesign.h */,
+				A2CCC40B1B51F5B70067E832 /* UserDataDesign.m */,
+				A2CCC40D1B521AEE0067E832 /* UserData.h */,
+				A2CCC40E1B521AEE0067E832 /* UserData.m */,
 				A2CCC4011B50B8530067E832 /* ContentOfExam.h */,
 				A2CCC4021B50B8530067E832 /* ContentOfExam.m */,
 				A2CCC4031B50B8530067E832 /* ContentOfExam.xib */,
@@ -106,6 +118,7 @@
 			children = (
 				A2CCC3DD1B4E2D4E0067E832 /* Info.plist */,
 				A2CCC3DE1B4E2D4E0067E832 /* main.m */,
+				A2CCC4061B50C0EE0067E832 /* setting.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -208,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2CCC3E71B4E2D4E0067E832 /* LaunchScreen.xib in Resources */,
+				A2CCC4071B50C0EE0067E832 /* setting.plist in Resources */,
 				A2CCC4051B50B8530067E832 /* ContentOfExam.xib in Resources */,
 				A2CCC4001B50B5520067E832 /* RootMenu.xib in Resources */,
 				A2CCC3E41B4E2D4E0067E832 /* Images.xcassets in Resources */,
@@ -231,6 +245,8 @@
 				A2CCC3E21B4E2D4E0067E832 /* AppDelegate.m in Sources */,
 				A2CCC4041B50B8530067E832 /* ContentOfExam.m in Sources */,
 				A2CCC3FF1B50B5520067E832 /* RootMenu.m in Sources */,
+				A2CCC40C1B51F5B70067E832 /* UserDataDesign.m in Sources */,
+				A2CCC40F1B521AEE0067E832 /* UserData.m in Sources */,
 				A2CCC3DF1B4E2D4E0067E832 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +430,7 @@
 				A2CCC3F81B4E2D4E0067E832 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A2CCC3F91B4E2D4E0067E832 /* Build configuration list for PBXNativeTarget "ExamForKidsTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +439,7 @@
 				A2CCC3FB1B4E2D4E0067E832 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

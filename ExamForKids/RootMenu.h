@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RootMenu : UIViewController
-- (IBAction)StartUnderTen:(id)sender;
+@interface RootMenu : UIViewController <UITableViewDelegate,UITableViewDataSource>
 
 @end
