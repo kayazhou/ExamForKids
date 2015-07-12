@@ -10,6 +10,12 @@
 
 @class ViewController;
 
+
+BOOL addition;
+BOOL subtraction;
+BOOL underTen;
+BOOL underHundred;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

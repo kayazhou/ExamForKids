@@ -18,6 +18,10 @@
     NSMutableArray *_contacts;//联系人模型
     NSIndexPath *_selectedIndexPath;//当前选中的组和行
 }
+extern BOOL addition;
+extern BOOL subtraction;
+extern BOOL underTen;
+extern BOOL underHundred;
 
 @end
 
@@ -26,10 +30,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    addition = NO;
+    subtraction = NO;
+    underTen = NO;
+    underHundred = NO;
     // Do any additional setup after loading the view from its nib.
 //    UITableView *ContentOfExam = [[UITableView alloc] init];
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(selectLeftAction:)];
     self.navigationItem.leftBarButtonItem = leftButton;
+
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(selectRightAction:)];
+    self.navigationItem.rightBarButtonItem = rightButton;
 
     [self initData];
     //创建一个分组样式的UITableView
@@ -56,17 +67,16 @@
     // Pass the selected object to the new view controller.
 }
 */
--(void)selectLeftAction:(id)sender
+-(void)selectRightAction:(id)sender
 {
     ContentOfExam *secondView = [[ContentOfExam alloc] init];
     [self.navigationController pushViewController:secondView animated:YES];
-    secondView.title = @"Second View";
+    secondView.title = @"Focus";
 }
 
 #pragma mark返回每行的单元格
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSIndexPath是一个结构体，记录了组和行信息
-    NSLog(@"5");
     NSLog(@"生成单元格(组：%li,行%li)",(long)indexPath.section,(long)indexPath.row);
     TableViewCell *group=_contacts[indexPath.section];
     UserData *contact=group.name[indexPath.row];
@@ -80,6 +90,21 @@
     NSLog(@"Selected section %lu, cell %lu",
           (unsigned long)[indexPath indexAtPosition: 0],
           (unsigned long)[indexPath indexAtPosition: 1 ]);
+    if ([indexPath indexAtPosition: 0] == 0 && [indexPath indexAtPosition: 1 ] == 0) {
+        addition = !addition;
+    }
+    if ([indexPath indexAtPosition: 0] == 0 && [indexPath indexAtPosition: 1 ] == 1) {
+        subtraction = !subtraction;
+    }
+    if ([indexPath indexAtPosition: 0] == 1 && [indexPath indexAtPosition: 1 ] == 0) {
+        underTen = !underTen;
+    }
+    if ([indexPath indexAtPosition: 0] == 1 && [indexPath indexAtPosition: 1 ] == 1) {
+        underHundred = !underHundred;
+    }
+    NSLog(@"Selected additon %d, suntraction %d,underten %d, underhundred %d",
+          addition,subtraction,underTen,underHundred);
+    
     
     /* 得到选中的表格单元的指针 */
     UITableViewCell *cell = [_tableView cellForRowAtIndexPath: indexPath ];
