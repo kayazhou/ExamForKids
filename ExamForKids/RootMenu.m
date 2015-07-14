@@ -117,43 +117,6 @@ extern BOOL underHundred;
     
     
 }
-/*
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    //NSIndexPath是一个对象，记录了组和行信息
-    NSLog(@"生成单元格(组：%li,行%li)",(long)indexPath.section,(long)indexPath.row);
-    TableViewCell *group=_contacts[indexPath.section];
-    UserData *contact=group.name[indexPath.row];
-    
-    //由于此方法调用十分频繁，cell的标示声明成静态变量有利于性能优化
-    static NSString *cellIdentifier=@"UITableViewCellIdentifierKey1";
-    static NSString *cellIdentifierForFirstRow=@"UITableViewCellIdentifierKeyWithSwitch";
-    //首先根据标示去缓存池取
-    UITableViewCell *cell;
-    if (indexPath.row==0) {
-        cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifierForFirstRow];
-    }else{
-        cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    }
-    //如果缓存池没有取到则重新创建并放到缓存池中
-    if(!cell){
-            cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifierForFirstRow];
-            UISwitch *sw=[[UISwitch alloc]init];
-            [sw addTarget:self action:@selector(switchValueChange:) forControlEvents:UIControlEventValueChanged];
-            cell.accessoryView=sw;
-    }
-    
-    if(indexPath.row==0){
-        ((UISwitch *)cell.accessoryView).tag=indexPath.section;
-    }
-    
-    cell.textLabel.text=[contact getName];
-    NSLog(@"cell:%@",cell);
-    
-    return cell;
-}
- */
-
-
 
 -(void)initData{
     _contacts=[[NSMutableArray alloc]init];
@@ -178,14 +141,14 @@ extern BOOL underHundred;
 }
 #pragma mark 返回每组行数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"计算每组(组%li)行数",(long)section);
+//    NSLog(@"计算每组(组%li)行数",(long)section);
     TableViewCell *group1=_contacts[section];
     return group1.name.count;
 }
 
 #pragma mark 返回每组头标题名称
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    NSLog(@"生成组（组%li）名称",(long)section);
+//    NSLog(@"生成组（组%li）名称",(long)section);
     TableViewCell *group=_contacts[section];
     NSLog(@"%@",group.groupName);
     return group.groupName;
@@ -193,7 +156,7 @@ extern BOOL underHundred;
 
 #pragma mark 返回每组尾部说明
 -(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section{
-    NSLog(@"生成尾部（组%li）详情",(long)section);
+//    NSLog(@"生成尾部（组%li）详情",(long)section);
     TableViewCell *group=_contacts[section];
     return group.detail;
 }
