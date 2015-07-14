@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A28B8ED01B55D0AD00E0E47B /* examForKids.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A28B8ECF1B55D0AD00E0E47B /* examForKids.jpg */; };
 		A2CCC3DF1B4E2D4E0067E832 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCC3DE1B4E2D4E0067E832 /* main.m */; };
 		A2CCC3E21B4E2D4E0067E832 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCC3E11B4E2D4E0067E832 /* AppDelegate.m */; };
 		A2CCC3E41B4E2D4E0067E832 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2CCC3E31B4E2D4E0067E832 /* Images.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A28B8ECF1B55D0AD00E0E47B /* examForKids.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = examForKids.jpg; path = ../../../../Downloads/examForKids.jpg; sourceTree = "<group>"; };
 		A2CCC3D91B4E2D4E0067E832 /* ExamForKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamForKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2CCC3DD1B4E2D4E0067E832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2CCC3DE1B4E2D4E0067E832 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		A2CCC3DC1B4E2D4E0067E832 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A28B8ECF1B55D0AD00E0E47B /* examForKids.jpg */,
 				A2CCC3DD1B4E2D4E0067E832 /* Info.plist */,
 				A2CCC3DE1B4E2D4E0067E832 /* main.m */,
 				A2CCC4061B50C0EE0067E832 /* setting.plist */,
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2CCC3E71B4E2D4E0067E832 /* LaunchScreen.xib in Resources */,
+				A28B8ED01B55D0AD00E0E47B /* examForKids.jpg in Resources */,
 				A2CCC4071B50C0EE0067E832 /* setting.plist in Resources */,
 				A2CCC4051B50B8530067E832 /* ContentOfExam.xib in Resources */,
 				A2CCC4001B50B5520067E832 /* RootMenu.xib in Resources */,

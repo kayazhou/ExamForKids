@@ -13,6 +13,7 @@
 {
     UITableView *_tableView;
     NSArray *tableViewData;
+    NSArray *tableViewDataResult;
     NSMutableArray *tableData;
     NSMutableArray *tableDataResult;
 }
@@ -28,11 +29,11 @@ extern BOOL underHundred;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(selectRightAction:)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+
     [self dataInit];
-//    for (NSObject *object in tableViewData) {
-//        NSLog(@"数组对象:%@", object);
-//    }
     //创建一个分组样式的UITableView
     _tableView=[[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     
@@ -110,16 +111,14 @@ extern BOOL underHundred;
             result = [NSString stringWithFormat:@"%d",randomFirst+randomSecond];
         }
 
-//        NSLog(@"content:%@",content);
         [tableData addObject:content];
         [tableDataResult addObject:result];
-        for (NSObject * object in tableData) {
-            NSLog(@"数组对象:%@", object);
-        }
-        
     }
     tableViewData = [tableData copy];
-    NSLog(@"tableviewdata count is:%d",tableData.count);
+    tableViewDataResult = [tableDataResult copy];
+//    for (NSObject * object in tableViewDataResult) {
+//        NSLog(@"数组对象:%@", object);
+//    }
 }
 
 /*
@@ -153,5 +152,13 @@ extern BOOL underHundred;
     cell.detailTextLabel.textAlignment = UITextLayoutDirectionLeft;
     return cell;
 }
+
+-(void)selectRightAction:(id)sender
+{
+    tableViewData = tableViewDataResult;
+    [_tableView reloadData];
+    self.navigationItem.rightBarButtonItem = nil;
+}
+
 
 @end
