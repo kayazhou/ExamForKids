@@ -16,6 +16,7 @@
     NSArray *tableViewDataResult;
     NSMutableArray *tableData;
     NSMutableArray *tableDataResult;
+    NSDate *dateNow;
 }
 extern BOOL addition;
 extern BOOL subtraction;
@@ -29,6 +30,21 @@ extern BOOL underHundred;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // Format the datatime for timer
+//    UInt64 recordTime = [[NSDate date] timeIntervalSince1970]*1000;
+    
+    NSDateFormatter * formatter = [[NSDateFormatter alloc ] init];
+//    [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
+    [formatter setDateFormat:@"hh:mm:ss:SSS"];
+    dateNow = [NSDate date];
+    NSString *date =  [formatter stringFromDate:[NSDate date]];
+    NSString *timeLocal = [[NSString alloc] initWithFormat:@"%@", date];
+    NSLog(@"the time is :%@", timeLocal);
+//    NSString *dateDiff = [[NSString alloc] compareCurrentTime:(NSDate *)date];
+//    NSLog(@"the time is :%@", [self compareCurrentTime:date]);
+    
+//    [[Person alloc] initWithnam:(NSString *)xiaohong age:19];
 
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(selectRightAction:)];
     self.navigationItem.rightBarButtonItem = rightButton;
@@ -45,6 +61,39 @@ extern BOOL underHundred;
     _tableView.separatorColor = [UIColor blueColor];
     
     [self.view addSubview:_tableView];
+}
+
++(NSString *) compareCurrentTime:(NSDate*) compareDate
+//
+{
+    NSTimeInterval  timeInterval = [compareDate timeIntervalSinceNow];
+    timeInterval = -timeInterval;
+    long temp = 0;
+    NSString *result;
+    if (timeInterval < 60) {
+        result = [NSString stringWithFormat:@"一分钟"];
+    }
+    else if((temp = timeInterval/60) <60){
+        result = [NSString stringWithFormat:@"%d分钟",temp];
+    }
+    
+    else if((temp = temp/60) <24){
+        result = [NSString stringWithFormat:@"%d小时",temp];
+    }
+    
+    else if((temp = temp/24) <30){
+        result = [NSString stringWithFormat:@"%d天",temp];
+    }
+    
+    else if((temp = temp/30) <12){
+        result = [NSString stringWithFormat:@"%d月",temp];
+    }
+    else{
+        temp = temp/12;
+        result = [NSString stringWithFormat:@"%d年",temp];
+    }
+    
+    return  result;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,9 +165,6 @@ extern BOOL underHundred;
     }
     tableViewData = [tableData copy];
     tableViewDataResult = [tableDataResult copy];
-//    for (NSObject * object in tableViewDataResult) {
-//        NSLog(@"数组对象:%@", object);
-//    }
 }
 
 /*

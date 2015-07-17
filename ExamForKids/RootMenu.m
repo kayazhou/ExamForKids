@@ -71,13 +71,13 @@ extern BOOL underHundred;
 {
     ContentOfExam *secondView = [[ContentOfExam alloc] init];
     [self.navigationController pushViewController:secondView animated:YES];
-    secondView.title = @"Focus";
+    secondView.title = @"Timing begins";
 }
 
 #pragma mark返回每行的单元格
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSIndexPath是一个结构体，记录了组和行信息
-    NSLog(@"生成单元格(组：%li,行%li)",(long)indexPath.section,(long)indexPath.row);
+//    NSLog(@"生成单元格(组：%li,行%li)",(long)indexPath.section,(long)indexPath.row);
     TableViewCell *group=_contacts[indexPath.section];
     UserData *contact=group.name[indexPath.row];
     UITableViewCell *cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -87,9 +87,9 @@ extern BOOL underHundred;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Selected section %lu, cell %lu",
-          (unsigned long)[indexPath indexAtPosition: 0],
-          (unsigned long)[indexPath indexAtPosition: 1 ]);
+//    NSLog(@"Selected section %lu, cell %lu",
+//          (unsigned long)[indexPath indexAtPosition: 0],
+//          (unsigned long)[indexPath indexAtPosition: 1 ]);
     if ([indexPath indexAtPosition: 0] == 0 && [indexPath indexAtPosition: 1 ] == 0) {
         addition = !addition;
     }
@@ -102,8 +102,8 @@ extern BOOL underHundred;
     if ([indexPath indexAtPosition: 0] == 1 && [indexPath indexAtPosition: 1 ] == 1) {
         underHundred = !underHundred;
     }
-    NSLog(@"Selected additon %d, suntraction %d,underten %d, underhundred %d",
-          addition,subtraction,underTen,underHundred);
+//    NSLog(@"Selected additon %d, suntraction %d,underten %d, underhundred %d",
+//          addition,subtraction,underTen,underHundred);
     
     
     /* 得到选中的表格单元的指针 */
@@ -136,7 +136,7 @@ extern BOOL underHundred;
 #pragma mark - 数据源方法
 #pragma mark 返回分组数
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    NSLog(@"计算分组数");
+//    NSLog(@"计算分组数");
     return _contacts.count;
 }
 #pragma mark 返回每组行数
@@ -150,7 +150,7 @@ extern BOOL underHundred;
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
 //    NSLog(@"生成组（组%li）名称",(long)section);
     TableViewCell *group=_contacts[section];
-    NSLog(@"%@",group.groupName);
+//    NSLog(@"%@",group.groupName);
     return group.groupName;
 }
 
@@ -181,7 +181,7 @@ extern BOOL underHundred;
 
 #pragma mark 切换开关转化事件
 -(void)switchValueChange:(UISwitch *)sw{
-    NSLog(@"section:%li,switch:%i",(long)sw.tag, sw.on);
+//    NSLog(@"section:%li,switch:%i",(long)sw.tag, sw.on);
 }
 
 @end
