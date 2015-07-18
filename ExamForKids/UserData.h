@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#define IPHONE6P ([[UIScreen mainScreen] nativeBounds].size.height > 1600)
+#define IPHONE5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define IPHONE6 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(750, 1334), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
 @interface UserData : NSObject
 
 #pragma mark 内容

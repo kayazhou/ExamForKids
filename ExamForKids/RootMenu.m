@@ -10,6 +10,8 @@
 #import "ContentOfExam.h"
 #import "UserDataDesign.h"
 #import "UserData.h"
+#import "sys/sysctl.h"
+#import <MessageUI/MessageUI.h>
 
 @interface RootMenu ()
 
@@ -49,7 +51,31 @@ extern BOOL underHundred;
     _tableView.dataSource=self;
     //设置代理
     _tableView.delegate=self;
+    _tableView.scrollEnabled = NO;
+
+    NSString *dev =  [self doDevicePlatform];
+    NSLog(@"dev = %@",dev);
     
+    CGRect tableViewFrame = _tableView.frame;
+    if (IPHONE6P) {
+        NSLog(@"IPHONE6P");
+        tableViewFrame.size.width = 414;
+        tableViewFrame.size.height = 736;
+    }else if (IPHONE5){
+        NSLog(@"IPHONE5");
+        tableViewFrame.size.width = 320;
+        tableViewFrame.size.height = 568;
+    }else if(IPHONE6){
+        NSLog(@"IPHONE6");
+        tableViewFrame.size.width = 375;
+        tableViewFrame.size.height = 667;
+    }else{
+        NSLog(@"IPHONEelse");
+        tableViewFrame.size.width = 320;
+        tableViewFrame.size.height = 568;
+    }
+    _tableView.frame = tableViewFrame;
+
     [self.view addSubview:_tableView];
 }
 
@@ -182,6 +208,100 @@ extern BOOL underHundred;
 #pragma mark 切换开关转化事件
 -(void)switchValueChange:(UISwitch *)sw{
 //    NSLog(@"section:%li,switch:%i",(long)sw.tag, sw.on);
+}
+
+- (NSString*) doDevicePlatform
+{
+    size_t size;
+    int nR =  sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *machine = (char *)malloc(size);
+    nR = sysctlbyname("hw.machine", machine, &size, NULL, 0);
+    NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
+    free(machine);
+    if ([platform isEqualToString:@"iPhone1,1"]) {
+        platform = @"iPhone";
+    } else if ([platform isEqualToString:@"iPhone1,2"]) {
+        platform = @"iPhone 3G";
+    } else if ([platform isEqualToString:@"iPhone2,1"]) {
+        platform = @"iPhone 3GS";
+    } else if ([platform isEqualToString:@"iPhone3,1"]||[platform isEqualToString:@"iPhone3,2"]||[platform isEqualToString:@"iPhone3,3"]) {
+        platform = @"iPhone 4";
+    } else if ([platform isEqualToString:@"iPhone4,1"]) {
+        platform = @"iPhone 4S";
+    } else if ([platform isEqualToString:@"iPhone5,1"]||[platform isEqualToString:@"iPhone5,2"]) {
+        platform = @"iPhone 5";
+    }else if ([platform isEqualToString:@"iPhone5,3"]||[platform isEqualToString:@"iPhone5,4"]) {
+        platform = @"iPhone 5C";
+    }else if ([platform isEqualToString:@"iPhone6,2"]||[platform isEqualToString:@"iPhone6,1"]) {
+        platform = @"iPhone 5S";
+    }else if ([platform isEqualToString:@"iPod4,1"]) {
+        platform = @"iPod touch 4";
+    }else if ([platform isEqualToString:@"iPod5,1"]) {
+        platform = @"iPod touch 5";
+    }else if ([platform isEqualToString:@"iPod3,1"]) {
+        platform = @"iPod touch 3";
+    }else if ([platform isEqualToString:@"iPod2,1"]) {
+        platform = @"iPod touch 2";
+    }else if ([platform isEqualToString:@"iPod1,1"]) {
+        platform = @"iPod touch";
+    } else if ([platform isEqualToString:@"iPad3,2"]||[platform isEqualToString:@"iPad3,1"]) {
+        platform = @"iPad 3";
+    } else if ([platform isEqualToString:@"iPad2,2"]||[platform isEqualToString:@"iPad2,1"]||[platform isEqualToString:@"iPad2,3"]||[platform isEqualToString:@"iPad2,4"]) {
+        platform = @"iPad 2";
+    }else if ([platform isEqualToString:@"iPad1,1"]) {
+        platform = @"iPad 1";
+    }else if ([platform isEqualToString:@"iPad2,5"]||[platform isEqualToString:@"iPad2,6"]||[platform isEqualToString:@"iPad2,7"]) {
+        platform = @"ipad mini";
+    } else if ([platform isEqualToString:@"iPad3,3"]||[platform isEqualToString:@"iPad3,4"]||[platform isEqualToString:@"iPad3,5"]||[platform isEqualToString:@"iPad3,6"]) {
+        platform = @"ipad 3";
+    }
+    return platform;
+}
+
+-(void)selectLeftAction:(id)sender
+{
+    // 1. 先判断能否发送邮件
+    if (![MFMailComposeViewController canSendMail]) {
+        // 提示用户设置邮箱
+        return;
+    }
+    
+    // 2. 实例化邮件控制器，准备发送邮件
+    MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+    
+    // 1) 主题 xxx的工作报告
+    [controller setSubject:@"我的工作报告"];
+    // 2) 收件人
+    [controller setToRecipients:@[@"he.zhou@gmail.com"]];
+    
+    // 3) cc 抄送
+    // 4) bcc 密送(偷偷地告诉，打个小报告)
+    // 5) 正文
+    [controller setMessageBody:@"这是我的<font color=\"blue\">工作报告</font>，请审阅！<BR />P.S. 我的头像牛X吗？" isHTML:YES];
+    
+    // 6) 附件
+//    UIImage *image = [UIImage imageNamed:@"头像1.png"];
+//    NSData *imageData = UIImagePNGRepresentation(image);
+    // 1> 附件的二进制数据
+    // 2> MIMEType 使用什么应用程序打开附件
+    // 3> 收件人接收时看到的文件名称
+    // 可以添加多个附件
+//    [controller addAttachmentData:imageData mimeType:@"image/png" fileName:@"头像.png"];
+    
+    // 7) 设置代理
+    [controller setMailComposeDelegate:self];
+    
+    // 显示控制器
+    [self presentViewController:controller animated:YES completion:nil];
+    NSLog(@"test");
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    // 根据不同状态提示用户
+    NSLog(@"%d", result);
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

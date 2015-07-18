@@ -8,6 +8,8 @@
 
 #import "ContentOfExam.h"
 #import "AppDelegate.h"
+#import "UserDataDesign.h"
+#import "UserData.h"
 
 @interface ContentOfExam () <UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>
 {
@@ -17,6 +19,7 @@
     NSMutableArray *tableData;
     NSMutableArray *tableDataResult;
     NSDate *dateNow;
+    int numberOfQuestion;
 }
 extern BOOL addition;
 extern BOOL subtraction;
@@ -35,6 +38,7 @@ extern BOOL underHundred;
 //    UInt64 recordTime = [[NSDate date] timeIntervalSince1970]*1000;
     
     NSDateFormatter * formatter = [[NSDateFormatter alloc ] init];
+    numberOfQuestion = 15;
 //    [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
     [formatter setDateFormat:@"hh:mm:ss:SSS"];
     dateNow = [NSDate date];
@@ -57,7 +61,30 @@ extern BOOL underHundred;
     _tableView.dataSource=self;
     //设置代理
     _tableView.delegate=self;
+    _tableView.scrollEnabled = NO;
     
+    CGRect tableViewFrame = _tableView.frame;
+//    tableViewFrame.size.width = 414;
+//    tableViewFrame.size.height = 736;
+    if (IPHONE6P) {
+        NSLog(@"IPHONE6P");
+        tableViewFrame.size.width = 414;
+        tableViewFrame.size.height = 736;
+    }else if (IPHONE5){
+        NSLog(@"IPHONE5");
+        tableViewFrame.size.width = 320;
+        tableViewFrame.size.height = 568;
+    }else if(IPHONE6){
+        NSLog(@"IPHONE6");
+        tableViewFrame.size.width = 375;
+        tableViewFrame.size.height = 667;
+    }else{
+        NSLog(@"IPHONEelse");
+        tableViewFrame.size.width = 320;
+        tableViewFrame.size.height = 568;
+    }
+    _tableView.frame = tableViewFrame;
+
     _tableView.separatorColor = [UIColor blueColor];
     
     [self.view addSubview:_tableView];
@@ -68,7 +95,7 @@ extern BOOL underHundred;
 {
     NSTimeInterval  timeInterval = [compareDate timeIntervalSinceNow];
     timeInterval = -timeInterval;
-    long temp = 0;
+    int temp = 0;
     NSString *result;
     if (timeInterval < 60) {
         result = [NSString stringWithFormat:@"一分钟"];
@@ -105,9 +132,9 @@ extern BOOL underHundred;
     BOOL style = 0;
     int randomFirst = 0,randomSecond = 0;
     NSString *content,*result;
-    NSMutableArray *tableData = [NSMutableArray arrayWithCapacity:11];
-    NSMutableArray *tableDataResult = [NSMutableArray arrayWithCapacity:11];
-    for (int i = 0; i < 11; i++) {
+    NSMutableArray *tableData = [NSMutableArray arrayWithCapacity:numberOfQuestion];
+    NSMutableArray *tableDataResult = [NSMutableArray arrayWithCapacity:numberOfQuestion];
+    for (int i = 0; i < numberOfQuestion; i++) {
         if (subtraction && addition) {
             style =arc4random() % 2;
         }
@@ -179,7 +206,7 @@ extern BOOL underHundred;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tableViewData count];
+    return numberOfQuestion;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
