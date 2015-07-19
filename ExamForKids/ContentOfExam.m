@@ -38,7 +38,7 @@ extern BOOL underHundred;
 //    UInt64 recordTime = [[NSDate date] timeIntervalSince1970]*1000;
     
     NSDateFormatter * formatter = [[NSDateFormatter alloc ] init];
-    numberOfQuestion = 15;
+    numberOfQuestion = 10;
 //    [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
     [formatter setDateFormat:@"hh:mm:ss:SSS"];
     dateNow = [NSDate date];
@@ -223,6 +223,8 @@ extern BOOL underHundred;
 //    cell.textLabel.text = [tableViewData objectAtIndex:indexPath.row];
     cell.detailTextLabel.text = [tableViewData objectAtIndex:indexPath.row];
     cell.detailTextLabel.textAlignment = UITextLayoutDirectionLeft;
+//    cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:20];
+    cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:30];
     return cell;
 }
 
@@ -233,5 +235,9 @@ extern BOOL underHundred;
     self.navigationItem.rightBarButtonItem = nil;
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 67.0f;
+}
 
 @end

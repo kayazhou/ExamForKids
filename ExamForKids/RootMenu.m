@@ -12,6 +12,7 @@
 #import "UserData.h"
 #import "sys/sysctl.h"
 #import <MessageUI/MessageUI.h>
+#import "help.h"
 
 @interface RootMenu ()
 
@@ -103,6 +104,12 @@ extern BOOL underHundred;
     [self.navigationController pushViewController:secondView animated:YES];
     secondView.title = @"Timing begins";
 }
+-(void)selectHelpAction
+{
+    ContentOfExam *thirdView = [[help alloc] init];
+    [self.navigationController pushViewController:thirdView animated:YES];
+    thirdView.title = @"How to use?";
+}
 
 #pragma mark返回每行的单元格
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -117,9 +124,9 @@ extern BOOL underHundred;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSLog(@"Selected section %lu, cell %lu",
-//          (unsigned long)[indexPath indexAtPosition: 0],
-//          (unsigned long)[indexPath indexAtPosition: 1 ]);
+    NSLog(@"Selected section %lu, cell %lu",
+          (unsigned long)[indexPath indexAtPosition: 0],
+          (unsigned long)[indexPath indexAtPosition: 1 ]);
     if ([indexPath indexAtPosition: 0] == 0 && [indexPath indexAtPosition: 1 ] == 0) {
         addition = !addition;
     }
@@ -132,11 +139,15 @@ extern BOOL underHundred;
     if ([indexPath indexAtPosition: 0] == 1 && [indexPath indexAtPosition: 1 ] == 1) {
         underHundred = !underHundred;
     }
+    if ([indexPath indexAtPosition: 0] == 2 && [indexPath indexAtPosition: 1 ] == 0) {
+        [self selectHelpAction];
+    }
 //    NSLog(@"Selected additon %d, suntraction %d,underten %d, underhundred %d",
 //          addition,subtraction,underTen,underHundred);
     
     /* 得到选中的表格单元的指针 */
     UITableViewCell *cell = [_tableView cellForRowAtIndexPath: indexPath ];
+    NSLog(@"点击的数是：%@",indexPath);
     
     /* 切换附件的类型 */
     if (cell.accessoryType == UITableViewCellAccessoryNone)
@@ -152,7 +163,7 @@ extern BOOL underHundred;
     
     UserData *contact1=[UserData initWithName:@"addition"];
     UserData *contact2=[UserData initWithName:@"Subtraction"];
-    TableViewCell *group1=[TableViewCell initWithGroupName:@"level" andDetail:@"select level for exam" andName:[NSMutableArray arrayWithObjects:contact1,contact2, nil]];
+    TableViewCell *group1=[TableViewCell initWithGroupName:@"level" andDetail:@"select level for exam" andName:[NSMutableArray arrayWithObjects:    contact1,contact2, nil]];
     [_contacts addObject:group1];
     
     UserData *contact3=[UserData initWithName:@"0-10"];
@@ -160,6 +171,9 @@ extern BOOL underHundred;
     TableViewCell *group2=[TableViewCell initWithGroupName:@"Style" andDetail:@"select style for exam" andName:[NSMutableArray arrayWithObjects:contact3,contact4, nil]];
     [_contacts addObject:group2];
     
+    UserData *contact5=[UserData initWithName:@"How to use?"];
+    TableViewCell *group3=[TableViewCell initWithGroupName:@"Style" andDetail:@"Help" andName:[NSMutableArray arrayWithObjects:contact5, nil]];
+    [_contacts addObject:group3];
 }
 
 #pragma mark - 数据源方法
@@ -205,7 +219,7 @@ extern BOOL underHundred;
 
 #pragma mark 设置尾部说明内容高度
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 40;
+    return 30;
 }
 
 #pragma mark 切换开关转化事件

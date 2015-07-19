@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A28B8ED01B55D0AD00E0E47B /* examForKids.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A28B8ECF1B55D0AD00E0E47B /* examForKids.jpg */; };
+		A2CC461B1B5B6246008BC9FF /* help.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CC46191B5B6246008BC9FF /* help.m */; };
+		A2CC461C1B5B6246008BC9FF /* help.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2CC461A1B5B6246008BC9FF /* help.xib */; };
 		A2CCC3DF1B4E2D4E0067E832 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCC3DE1B4E2D4E0067E832 /* main.m */; };
 		A2CCC3E21B4E2D4E0067E832 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCC3E11B4E2D4E0067E832 /* AppDelegate.m */; };
 		A2CCC3E41B4E2D4E0067E832 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2CCC3E31B4E2D4E0067E832 /* Images.xcassets */; };
@@ -33,6 +35,9 @@
 
 /* Begin PBXFileReference section */
 		A28B8ECF1B55D0AD00E0E47B /* examForKids.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = examForKids.jpg; path = ../../../../Downloads/examForKids.jpg; sourceTree = "<group>"; };
+		A2CC46181B5B6246008BC9FF /* help.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = help.h; sourceTree = "<group>"; };
+		A2CC46191B5B6246008BC9FF /* help.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = help.m; sourceTree = "<group>"; };
+		A2CC461A1B5B6246008BC9FF /* help.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = help.xib; sourceTree = "<group>"; };
 		A2CCC3D91B4E2D4E0067E832 /* ExamForKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamForKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2CCC3DD1B4E2D4E0067E832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2CCC3DE1B4E2D4E0067E832 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +103,9 @@
 				A2CCC3E11B4E2D4E0067E832 /* AppDelegate.m */,
 				A2CCC3E31B4E2D4E0067E832 /* Images.xcassets */,
 				A2CCC3E51B4E2D4E0067E832 /* LaunchScreen.xib */,
+				A2CC46181B5B6246008BC9FF /* help.h */,
+				A2CC46191B5B6246008BC9FF /* help.m */,
+				A2CC461A1B5B6246008BC9FF /* help.xib */,
 				A2CCC3FC1B50B5520067E832 /* RootMenu.h */,
 				A2CCC3FD1B50B5520067E832 /* RootMenu.m */,
 				A2CCC3FE1B50B5520067E832 /* RootMenu.xib */,
@@ -221,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2CC461C1B5B6246008BC9FF /* help.xib in Resources */,
 				A2CCC3E71B4E2D4E0067E832 /* LaunchScreen.xib in Resources */,
 				A28B8ED01B55D0AD00E0E47B /* examForKids.jpg in Resources */,
 				A2CCC4051B50B8530067E832 /* ContentOfExam.xib in Resources */,
@@ -244,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2CCC3E21B4E2D4E0067E832 /* AppDelegate.m in Sources */,
+				A2CC461B1B5B6246008BC9FF /* help.m in Sources */,
 				A2CCC4041B50B8530067E832 /* ContentOfExam.m in Sources */,
 				A2CCC3FF1B50B5520067E832 /* RootMenu.m in Sources */,
 				A2CCC40C1B51F5B70067E832 /* UserDataDesign.m in Sources */,
