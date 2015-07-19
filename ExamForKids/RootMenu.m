@@ -19,6 +19,10 @@
     UITableView *_tableView;
     NSMutableArray *_contacts;//联系人模型
     NSIndexPath *_selectedIndexPath;//当前选中的组和行
+    NSArray *tableViewData;
+    NSMutableArray *tableData;
+    int numberOfQuestion;
+    NSString *letterResult;
 }
 extern BOOL addition;
 extern BOOL subtraction;
@@ -270,14 +274,16 @@ extern BOOL underHundred;
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
     
     // 1) 主题 xxx的工作报告
-    [controller setSubject:@"我的工作报告"];
+    [controller setSubject:@"Come On Junior"];
     // 2) 收件人
-    [controller setToRecipients:@[@"he.zhou@gmail.com"]];
+    //[controller setToRecipients:@[@"he.zhou@gmail.com"]];
     
-    // 3) cc 抄送
+    // 3) 数据初始化
+    [self dataInit];
     // 4) bcc 密送(偷偷地告诉，打个小报告)
     // 5) 正文
-    [controller setMessageBody:@"这是我的<font color=\"blue\">工作报告</font>，请审阅！<BR />P.S. 我的头像牛X吗？" isHTML:YES];
+    //NSLog(@"这就是我：%@",letterResult);
+    [controller setMessageBody:letterResult isHTML:YES];
     
     // 6) 附件
 //    UIImage *image = [UIImage imageNamed:@"头像1.png"];
@@ -298,10 +304,72 @@ extern BOOL underHundred;
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
-    // 根据不同状态提示用户
-    NSLog(@"%d", result);
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)dataInit{
+    NSLog(@"this data init");
+    BOOL style = 0;
+    int randomFirst = 0,randomSecond = 0;
+    NSString *content;
+    tableData = [NSMutableArray arrayWithCapacity:numberOfQuestion];
+    for (int i = 0; i < 30; i++) {
+        if (subtraction && addition) {
+            style =arc4random() % 2;
+        }
+        if (subtraction && !addition) {
+            style = 1;
+        }
+        if (!subtraction && addition) {
+            style = 0;
+        }
+        if (!subtraction && !addition) {
+            style =arc4random() % 2;
+        }
+        if (underTen && underHundred) {
+            randomFirst = (arc4random() % 100) + 1;
+            if (style) {
+                randomSecond = (arc4random() % randomFirst) + 1;
+            }else{
+                randomSecond = (arc4random() % 100) + 1;
+            }
+        }
+        if (!underTen && !underHundred) {
+            randomFirst = (arc4random() % 100) + 1;
+            if (style) {
+                randomSecond = (arc4random() % randomFirst) + 1;
+            }else{
+                randomSecond = (arc4random() % 100) + 1;
+            }
+        }
+        if (!underTen && underHundred) {
+            randomFirst = (arc4random() % 100) + 1;
+            if (style) {
+                randomSecond = (arc4random() % randomFirst) + 1;
+            }else{
+                randomSecond = (arc4random() % 100) + 1;
+            }
+        }
+        if (underTen && !underHundred) {
+            randomFirst = (arc4random() % 10) + 1;
+            if (style) {
+                randomSecond = (arc4random() % randomFirst) + 1;
+            }else{
+                randomSecond = (arc4random() % 10) + 1;
+            }
+        }
+        if (style) {
+            content = [NSString stringWithFormat:@"%d - %d = ",randomFirst,randomSecond];
+        }else{
+            content = [NSString stringWithFormat:@"%d + %d = ",randomFirst,randomSecond];
+        }
+        NSLog(@"%@",content);
+        [tableData addObject:content];
+    }
+    tableViewData = [tableData copy];
+    letterResult = [tableViewData componentsJoinedByString:@"</p>"];
+    NSLog(@"zhegeshiceshi :%@",letterResult);
+}
+
 
 @end
