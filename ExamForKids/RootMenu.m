@@ -15,7 +15,7 @@
 
 @interface RootMenu ()
 
-<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate>{
+<UITableViewDataSource,UITableViewDelegate,UIAlertViewDelegate,MFMailComposeViewControllerDelegate>{
     UITableView *_tableView;
     NSMutableArray *_contacts;//联系人模型
     NSIndexPath *_selectedIndexPath;//当前选中的组和行
@@ -134,7 +134,6 @@ extern BOOL underHundred;
     }
 //    NSLog(@"Selected additon %d, suntraction %d,underten %d, underhundred %d",
 //          addition,subtraction,underTen,underHundred);
-    
     
     /* 得到选中的表格单元的指针 */
     UITableViewCell *cell = [_tableView cellForRowAtIndexPath: indexPath ];
@@ -264,42 +263,19 @@ extern BOOL underHundred;
 
 -(void)selectLeftAction:(id)sender
 {
-    // 1. 先判断能否发送邮件
     if (![MFMailComposeViewController canSendMail]) {
-        // 提示用户设置邮箱
         return;
     }
-    
-    // 2. 实例化邮件控制器，准备发送邮件
     MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
     
-    // 1) 主题 xxx的工作报告
     [controller setSubject:@"Come On Junior"];
-    // 2) 收件人
-    //[controller setToRecipients:@[@"he.zhou@gmail.com"]];
-    
-    // 3) 数据初始化
     [self dataInit];
-    // 4) bcc 密送(偷偷地告诉，打个小报告)
-    // 5) 正文
-    //NSLog(@"这就是我：%@",letterResult);
     [controller setMessageBody:letterResult isHTML:YES];
     
-    // 6) 附件
-//    UIImage *image = [UIImage imageNamed:@"头像1.png"];
-//    NSData *imageData = UIImagePNGRepresentation(image);
-    // 1> 附件的二进制数据
-    // 2> MIMEType 使用什么应用程序打开附件
-    // 3> 收件人接收时看到的文件名称
-    // 可以添加多个附件
-//    [controller addAttachmentData:imageData mimeType:@"image/png" fileName:@"头像.png"];
-    
-    // 7) 设置代理
     [controller setMailComposeDelegate:self];
     
     // 显示控制器
     [self presentViewController:controller animated:YES completion:nil];
-    NSLog(@"test");
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
@@ -308,7 +284,6 @@ extern BOOL underHundred;
 }
 
 - (void)dataInit{
-    NSLog(@"this data init");
     BOOL style = 0;
     int randomFirst = 0,randomSecond = 0;
     NSString *content;
@@ -363,12 +338,10 @@ extern BOOL underHundred;
         }else{
             content = [NSString stringWithFormat:@"%d + %d = ",randomFirst,randomSecond];
         }
-        NSLog(@"%@",content);
         [tableData addObject:content];
     }
     tableViewData = [tableData copy];
     letterResult = [tableViewData componentsJoinedByString:@"</p>"];
-    NSLog(@"zhegeshiceshi :%@",letterResult);
 }
 
 

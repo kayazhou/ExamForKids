@@ -132,8 +132,8 @@ extern BOOL underHundred;
     BOOL style = 0;
     int randomFirst = 0,randomSecond = 0;
     NSString *content,*result;
-    NSMutableArray *tableData = [NSMutableArray arrayWithCapacity:numberOfQuestion];
-    NSMutableArray *tableDataResult = [NSMutableArray arrayWithCapacity:numberOfQuestion];
+    tableData = [NSMutableArray arrayWithCapacity:numberOfQuestion];
+    tableDataResult = [NSMutableArray arrayWithCapacity:numberOfQuestion];
     for (int i = 0; i < numberOfQuestion; i++) {
         if (subtraction && addition) {
             style =arc4random() % 2;
