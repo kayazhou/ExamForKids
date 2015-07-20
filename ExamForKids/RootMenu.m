@@ -161,7 +161,7 @@ extern BOOL underHundred;
 -(void)initData{
     _contacts=[[NSMutableArray alloc]init];
     
-    UserData *contact1=[UserData initWithName:@"addition"];
+    UserData *contact1=[UserData initWithName:@"Addition"];
     UserData *contact2=[UserData initWithName:@"Subtraction"];
     TableViewCell *group1=[TableViewCell initWithGroupName:@"level" andDetail:@"select level for exam" andName:[NSMutableArray arrayWithObjects:    contact1,contact2, nil]];
     [_contacts addObject:group1];
