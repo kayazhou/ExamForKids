@@ -20,6 +20,7 @@
     NSMutableArray *tableDataResult;
     NSDate *dateNow;
     int numberOfQuestion;
+    NSDate * beginDate;
 }
 extern BOOL addition;
 extern BOOL subtraction;
@@ -34,22 +35,8 @@ extern BOOL underHundred;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // Format the datatime for timer
-//    UInt64 recordTime = [[NSDate date] timeIntervalSince1970]*1000;
-    
-    NSDateFormatter * formatter = [[NSDateFormatter alloc ] init];
     numberOfQuestion = 10;
-//    [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss:SSS"];
-    [formatter setDateFormat:@"hh:mm:ss:SSS"];
-    dateNow = [NSDate date];
-    NSString *date =  [formatter stringFromDate:[NSDate date]];
-    NSString *timeLocal = [[NSString alloc] initWithFormat:@"%@", date];
-    NSLog(@"the time is :%@", timeLocal);
-//    NSString *dateDiff = [[NSString alloc] compareCurrentTime:(NSDate *)date];
-//    NSLog(@"the time is :%@", [self compareCurrentTime:date]);
     
-//    [[Person alloc] initWithnam:(NSString *)xiaohong age:19];
-
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:@selector(selectRightAction:)];
     self.navigationItem.rightBarButtonItem = rightButton;
 
@@ -64,8 +51,6 @@ extern BOOL underHundred;
     _tableView.scrollEnabled = NO;
     
     CGRect tableViewFrame = _tableView.frame;
-//    tableViewFrame.size.width = 414;
-//    tableViewFrame.size.height = 736;
     if (IPHONE6P) {
         NSLog(@"IPHONE6P");
         tableViewFrame.size.width = 414;
@@ -90,39 +75,6 @@ extern BOOL underHundred;
     [self.view addSubview:_tableView];
 }
 
-+(NSString *) compareCurrentTime:(NSDate*) compareDate
-//
-{
-    NSTimeInterval  timeInterval = [compareDate timeIntervalSinceNow];
-    timeInterval = -timeInterval;
-    int temp = 0;
-    NSString *result;
-    if (timeInterval < 60) {
-        result = [NSString stringWithFormat:@"一分钟"];
-    }
-    else if((temp = timeInterval/60) <60){
-        result = [NSString stringWithFormat:@"%d分钟",temp];
-    }
-    
-    else if((temp = temp/60) <24){
-        result = [NSString stringWithFormat:@"%d小时",temp];
-    }
-    
-    else if((temp = temp/24) <30){
-        result = [NSString stringWithFormat:@"%d天",temp];
-    }
-    
-    else if((temp = temp/30) <12){
-        result = [NSString stringWithFormat:@"%d月",temp];
-    }
-    else{
-        temp = temp/12;
-        result = [NSString stringWithFormat:@"%d年",temp];
-    }
-    
-    return  result;
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -132,6 +84,9 @@ extern BOOL underHundred;
     BOOL style = 0;
     int randomFirst = 0,randomSecond = 0;
     NSString *content,*result;
+    beginDate = [NSDate date];
+    NSLog(@"begin date is :%@",beginDate);
+
     tableData = [NSMutableArray arrayWithCapacity:numberOfQuestion];
     tableDataResult = [NSMutableArray arrayWithCapacity:numberOfQuestion];
     for (int i = 0; i < numberOfQuestion; i++) {
@@ -152,7 +107,7 @@ extern BOOL underHundred;
             if (style) {
                 randomSecond = (arc4random() % randomFirst) + 1;
             }else{
-                randomSecond = (arc4random() % (100-randomFirst)) + 1;
+                randomSecond = (arc4random() % (101-randomFirst)) + 1;
             }
         }
         if (!underTen && !underHundred) {
@@ -160,7 +115,7 @@ extern BOOL underHundred;
             if (style) {
                 randomSecond = (arc4random() % randomFirst) + 1;
             }else{
-                randomSecond = (arc4random() % (100-randomFirst)) + 1;
+                randomSecond = (arc4random() % (101-randomFirst)) + 1;
             }
         }
         if (!underTen && underHundred) {
@@ -168,7 +123,7 @@ extern BOOL underHundred;
             if (style) {
                 randomSecond = (arc4random() % randomFirst) + 1;
             }else{
-                randomSecond = (arc4random() % (100-randomFirst)) + 1;
+                randomSecond = (arc4random() % (101-randomFirst)) + 1;
             }
         }
         if (underTen && !underHundred) {
@@ -214,16 +169,13 @@ extern BOOL underHundred;
     static NSString *simpleTableIdentifier = @"SimpleTableItem";
     
     UITableViewCell *cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:simpleTableIdentifier];
     }
     
-//    cell.textLabel.text = [tableViewData objectAtIndex:indexPath.row];
     cell.detailTextLabel.text = [tableViewData objectAtIndex:indexPath.row];
     cell.detailTextLabel.textAlignment = UITextLayoutDirectionLeft;
-//    cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:20];
     cell.detailTextLabel.font = [UIFont boldSystemFontOfSize:30];
     return cell;
 }
@@ -231,7 +183,14 @@ extern BOOL underHundred;
 -(void)selectRightAction:(id)sender
 {
     tableViewData = tableViewDataResult;
+    NSDate * tomorrowDate = [NSDate date];
+    NSTimeInterval interval = [tomorrowDate timeIntervalSinceDate:beginDate];
+    NSLog(@"%f",interval);
+    int diff = interval;
+    NSLog(@"%d",diff);
     [_tableView reloadData];
+    self.navigationItem.title = [NSString stringWithFormat:@"%d秒",diff];
+
     self.navigationItem.rightBarButtonItem = nil;
 }
 
