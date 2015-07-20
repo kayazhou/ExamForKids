@@ -185,9 +185,7 @@ extern BOOL underHundred;
     tableViewData = tableViewDataResult;
     NSDate * tomorrowDate = [NSDate date];
     NSTimeInterval interval = [tomorrowDate timeIntervalSinceDate:beginDate];
-    NSLog(@"%f",interval);
     int diff = interval;
-    NSLog(@"%d",diff);
     [_tableView reloadData];
     self.navigationItem.title = [NSString stringWithFormat:@"%d秒",diff];
 

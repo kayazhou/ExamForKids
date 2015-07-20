@@ -30,7 +30,6 @@ extern BOOL subtraction;
 extern BOOL underTen;
 extern BOOL underHundred;
 
-
 @end
 
 @implementation RootMenu
@@ -43,7 +42,6 @@ extern BOOL underHundred;
     underTen = NO;
     underHundred = NO;
     // Do any additional setup after loading the view from its nib.
-//    UITableView *ContentOfExam = [[UITableView alloc] init];
     UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(selectLeftAction:)];
     self.navigationItem.leftBarButtonItem = leftButton;
 
@@ -105,9 +103,8 @@ extern BOOL underHundred;
     [self.navigationController pushViewController:secondView animated:YES];
     secondView.title = @"Timing begins";
 }
--(void)selectHelpAction
-{
-    ContentOfExam *thirdView = [[help alloc] init];
+-(void)selectHelpAction{
+    help *thirdView = [[help alloc] init];
     [self.navigationController pushViewController:thirdView animated:YES];
     thirdView.title = @"How to use?";
 }
@@ -115,7 +112,6 @@ extern BOOL underHundred;
 #pragma mark返回每行的单元格
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //NSIndexPath是一个结构体，记录了组和行信息
-//    NSLog(@"生成单元格(组：%li,行%li)",(long)indexPath.section,(long)indexPath.row);
     TableViewCell *group=_contacts[indexPath.section];
     UserData *contact=group.name[indexPath.row];
     UITableViewCell *cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -143,8 +139,6 @@ extern BOOL underHundred;
     if ([indexPath indexAtPosition: 0] == 2 && [indexPath indexAtPosition: 1 ] == 0) {
         [self selectHelpAction];
     }
-//    NSLog(@"Selected additon %d, suntraction %d,underten %d, underhundred %d",
-//          addition,subtraction,underTen,underHundred);
     
     /* 得到选中的表格单元的指针 */
     UITableViewCell *cell = [_tableView cellForRowAtIndexPath: indexPath ];
