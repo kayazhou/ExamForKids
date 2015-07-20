@@ -152,7 +152,7 @@ extern BOOL underHundred;
             if (style) {
                 randomSecond = (arc4random() % randomFirst) + 1;
             }else{
-                randomSecond = (arc4random() % 100) + 1;
+                randomSecond = (arc4random() % (100-randomFirst)) + 1;
             }
         }
         if (!underTen && !underHundred) {
@@ -160,7 +160,7 @@ extern BOOL underHundred;
             if (style) {
                 randomSecond = (arc4random() % randomFirst) + 1;
             }else{
-                randomSecond = (arc4random() % 100) + 1;
+                randomSecond = (arc4random() % (100-randomFirst)) + 1;
             }
         }
         if (!underTen && underHundred) {
@@ -168,7 +168,7 @@ extern BOOL underHundred;
             if (style) {
                 randomSecond = (arc4random() % randomFirst) + 1;
             }else{
-                randomSecond = (arc4random() % 100) + 1;
+                randomSecond = (arc4random() % (100-randomFirst)) + 1;
             }
         }
         if (underTen && !underHundred) {
