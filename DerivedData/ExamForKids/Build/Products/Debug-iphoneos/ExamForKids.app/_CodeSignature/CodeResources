@@ -4,11 +4,15 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Assets.car</key>
+		<data>
+		isoaS/2v6TeRuvr/9ICQcjNTDu0=
+		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WTMY7fKSNPTnJC42cCT5YZBrXe4=
+			UHlr27ZfekZc18z4E+1LCVgKi6c=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -43,16 +47,20 @@
 		</data>
 		<key>help.nib</key>
 		<data>
-		s1QD6X41RVQGwgYTelhufU+ifV8=
+		ccOoxE0+dE8iRBUXI8nHzV7JSEw=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Assets.car</key>
+		<data>
+		isoaS/2v6TeRuvr/9ICQcjNTDu0=
+		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WTMY7fKSNPTnJC42cCT5YZBrXe4=
+			UHlr27ZfekZc18z4E+1LCVgKi6c=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -79,7 +87,7 @@
 		</data>
 		<key>help.nib</key>
 		<data>
-		s1QD6X41RVQGwgYTelhufU+ifV8=
+		ccOoxE0+dE8iRBUXI8nHzV7JSEw=
 		</data>
 	</dict>
 	<key>rules</key>
