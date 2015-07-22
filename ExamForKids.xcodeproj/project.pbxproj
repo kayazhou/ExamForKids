@@ -10,6 +10,7 @@
 		A28B8ED01B55D0AD00E0E47B /* examForKids.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A28B8ECF1B55D0AD00E0E47B /* examForKids.jpg */; };
 		A2CC461B1B5B6246008BC9FF /* help.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CC46191B5B6246008BC9FF /* help.m */; };
 		A2CC461C1B5B6246008BC9FF /* help.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2CC461A1B5B6246008BC9FF /* help.xib */; };
+		A2CC46201B5F5D55008BC9FF /* help.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A2CC461F1B5F5D55008BC9FF /* help.jpg */; };
 		A2CCC3DF1B4E2D4E0067E832 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCC3DE1B4E2D4E0067E832 /* main.m */; };
 		A2CCC3E21B4E2D4E0067E832 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2CCC3E11B4E2D4E0067E832 /* AppDelegate.m */; };
 		A2CCC3E41B4E2D4E0067E832 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2CCC3E31B4E2D4E0067E832 /* Images.xcassets */; };
@@ -38,6 +39,7 @@
 		A2CC46181B5B6246008BC9FF /* help.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = help.h; sourceTree = "<group>"; };
 		A2CC46191B5B6246008BC9FF /* help.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = help.m; sourceTree = "<group>"; };
 		A2CC461A1B5B6246008BC9FF /* help.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = help.xib; sourceTree = "<group>"; };
+		A2CC461F1B5F5D55008BC9FF /* help.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = help.jpg; path = ../../../../Pictures/help.jpg; sourceTree = "<group>"; };
 		A2CCC3D91B4E2D4E0067E832 /* ExamForKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamForKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2CCC3DD1B4E2D4E0067E832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2CCC3DE1B4E2D4E0067E832 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -102,6 +104,8 @@
 				A2CCC3E01B4E2D4E0067E832 /* AppDelegate.h */,
 				A2CCC3E11B4E2D4E0067E832 /* AppDelegate.m */,
 				A2CCC3E31B4E2D4E0067E832 /* Images.xcassets */,
+				A2CC461F1B5F5D55008BC9FF /* help.jpg */,
+				A28B8ECF1B55D0AD00E0E47B /* examForKids.jpg */,
 				A2CCC3E51B4E2D4E0067E832 /* LaunchScreen.xib */,
 				A2CC46181B5B6246008BC9FF /* help.h */,
 				A2CC46191B5B6246008BC9FF /* help.m */,
@@ -124,7 +128,6 @@
 		A2CCC3DC1B4E2D4E0067E832 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A28B8ECF1B55D0AD00E0E47B /* examForKids.jpg */,
 				A2CCC3DD1B4E2D4E0067E832 /* Info.plist */,
 				A2CCC3DE1B4E2D4E0067E832 /* main.m */,
 			);
@@ -235,6 +238,7 @@
 				A2CCC4051B50B8530067E832 /* ContentOfExam.xib in Resources */,
 				A2CCC4001B50B5520067E832 /* RootMenu.xib in Resources */,
 				A2CCC3E41B4E2D4E0067E832 /* Images.xcassets in Resources */,
+				A2CC46201B5F5D55008BC9FF /* help.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

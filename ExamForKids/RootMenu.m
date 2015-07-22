@@ -58,7 +58,7 @@ extern BOOL underHundred;
     _tableView.scrollEnabled = NO;
 
     NSString *dev =  [self doDevicePlatform];
-    NSLog(@"dev = %@",dev);
+//    NSLog(@"dev = %@",dev);
     
     CGRect tableViewFrame = _tableView.frame;
     if (IPHONE6P) {
@@ -121,9 +121,9 @@ extern BOOL underHundred;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Selected section %lu, cell %lu",
-          (unsigned long)[indexPath indexAtPosition: 0],
-          (unsigned long)[indexPath indexAtPosition: 1 ]);
+//    NSLog(@"Selected section %lu, cell %lu",
+//          (unsigned long)[indexPath indexAtPosition: 0],
+//          (unsigned long)[indexPath indexAtPosition: 1 ]);
     if ([indexPath indexAtPosition: 0] == 0 && [indexPath indexAtPosition: 1 ] == 0) {
         addition = !addition;
     }
@@ -142,7 +142,7 @@ extern BOOL underHundred;
     
     /* 得到选中的表格单元的指针 */
     UITableViewCell *cell = [_tableView cellForRowAtIndexPath: indexPath ];
-    NSLog(@"点击的数是：%@",indexPath);
+//    NSLog(@"点击的数是：%@",indexPath);
     
     /* 切换附件的类型 */
     if (cell.accessoryType == UITableViewCellAccessoryNone)

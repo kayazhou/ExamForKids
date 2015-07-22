@@ -194,7 +194,15 @@ extern BOOL underHundred;
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 67.0f;
+    if (IPHONE6P) {
+        return 67.0f;
+    }else if (IPHONE5){
+        return 63.0f;
+    }else if(IPHONE6){
+        return 67.0f;
+    }else{
+        return 59.0f;
+    }
 }
 
 @end
