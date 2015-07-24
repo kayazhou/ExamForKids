@@ -1,9 +1,25 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "scale" : "1x",
-      "filename" : "examForKids.png"
+      "filename" : "examForKids-4.png"
+    },
+    {
+      "idiom" : "iphone",
+      "scale" : "2x",
+      "filename" : "examForKids-5.png"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "examForKids-6.png",
+      "subtype" : "retina4",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "scale" : "3x",
+      "filename" : "examForKids-6p.png"
     }
   ],
   "info" : {

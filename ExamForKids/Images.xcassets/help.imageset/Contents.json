@@ -1,9 +1,25 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "scale" : "1x",
-      "filename" : "help.png"
+      "filename" : "help4.png"
+    },
+    {
+      "idiom" : "iphone",
+      "scale" : "2x",
+      "filename" : "help5.png"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "help6.png",
+      "subtype" : "retina4",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "scale" : "3x",
+      "filename" : "help6p.png"
     }
   ],
   "info" : {

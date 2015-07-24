@@ -4,15 +4,39 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AppIcon29x29@2x.png</key>
+		<data>
+		X5rTVOLejjlSM8Rd4ViBXbJd5PI=
+		</data>
+		<key>AppIcon29x29@3x.png</key>
+		<data>
+		kbMDZqIA5OilqJ1jY/ukb9MhoEk=
+		</data>
+		<key>AppIcon40x40@2x.png</key>
+		<data>
+		LVvTiFnKv7q+4+zrZlQHBxnjVY4=
+		</data>
+		<key>AppIcon40x40@3x.png</key>
+		<data>
+		HDZNK/Ld9YuDLagR/YxN1lE8/Qc=
+		</data>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		zFdIQCgVGnoAt5cDjJXhvWIlxLk=
+		</data>
+		<key>AppIcon60x60@3x.png</key>
+		<data>
+		8g7rN5a31JNcliSppddUNz03OxU=
+		</data>
 		<key>Assets.car</key>
 		<data>
-		isoaS/2v6TeRuvr/9ICQcjNTDu0=
+		vU8OVdTv7ys7BsVvr/Yji6C82r0=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UHlr27ZfekZc18z4E+1LCVgKi6c=
+			4V+HTfP81mx3Gy2W19Ie8fkkR0g=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -21,9 +45,17 @@
 		<data>
 		VEE+TF8QCHsKy7jZYc3uQZD5qD4=
 		</data>
+		<key>ContentOfExam~iphone.nib/objects-8.0+.nib</key>
+		<data>
+		8ZSyIDBAsXrm1OzneB8lkFc4D9Y=
+		</data>
+		<key>ContentOfExam~iphone.nib/runtime.nib</key>
+		<data>
+		L2C+1wbEy9swrMuSJoeYWBb77DA=
+		</data>
 		<key>Info.plist</key>
 		<data>
-		MDZ1QC5/fVcLNsWWLs//O3jYp30=
+		XZmOkOLhbDbu8zkIKM8ThaXauyk=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -31,7 +63,7 @@
 		</data>
 		<key>RootMenu.nib</key>
 		<data>
-		dW0vxCn4Gco+QuCqV91dck2jc2A=
+		M2FeXRD47XTDo/iXUvJAMUCHeXA=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -49,18 +81,50 @@
 		<data>
 		ccOoxE0+dE8iRBUXI8nHzV7JSEw=
 		</data>
+		<key>help~iphone.nib/objects-8.0+.nib</key>
+		<data>
+		WaXLkGQJkjb2l6gVc2RwPk9yKrk=
+		</data>
+		<key>help~iphone.nib/runtime.nib</key>
+		<data>
+		6fkz9g24s1pEob0EiT7+CdBTQeg=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>AppIcon29x29@2x.png</key>
+		<data>
+		X5rTVOLejjlSM8Rd4ViBXbJd5PI=
+		</data>
+		<key>AppIcon29x29@3x.png</key>
+		<data>
+		kbMDZqIA5OilqJ1jY/ukb9MhoEk=
+		</data>
+		<key>AppIcon40x40@2x.png</key>
+		<data>
+		LVvTiFnKv7q+4+zrZlQHBxnjVY4=
+		</data>
+		<key>AppIcon40x40@3x.png</key>
+		<data>
+		HDZNK/Ld9YuDLagR/YxN1lE8/Qc=
+		</data>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		zFdIQCgVGnoAt5cDjJXhvWIlxLk=
+		</data>
+		<key>AppIcon60x60@3x.png</key>
+		<data>
+		8g7rN5a31JNcliSppddUNz03OxU=
+		</data>
 		<key>Assets.car</key>
 		<data>
-		isoaS/2v6TeRuvr/9ICQcjNTDu0=
+		vU8OVdTv7ys7BsVvr/Yji6C82r0=
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UHlr27ZfekZc18z4E+1LCVgKi6c=
+			4V+HTfP81mx3Gy2W19Ie8fkkR0g=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -69,9 +133,17 @@
 		<data>
 		VEE+TF8QCHsKy7jZYc3uQZD5qD4=
 		</data>
+		<key>ContentOfExam~iphone.nib/objects-8.0+.nib</key>
+		<data>
+		8ZSyIDBAsXrm1OzneB8lkFc4D9Y=
+		</data>
+		<key>ContentOfExam~iphone.nib/runtime.nib</key>
+		<data>
+		L2C+1wbEy9swrMuSJoeYWBb77DA=
+		</data>
 		<key>RootMenu.nib</key>
 		<data>
-		dW0vxCn4Gco+QuCqV91dck2jc2A=
+		M2FeXRD47XTDo/iXUvJAMUCHeXA=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
@@ -88,6 +160,14 @@
 		<key>help.nib</key>
 		<data>
 		ccOoxE0+dE8iRBUXI8nHzV7JSEw=
+		</data>
+		<key>help~iphone.nib/objects-8.0+.nib</key>
+		<data>
+		WaXLkGQJkjb2l6gVc2RwPk9yKrk=
+		</data>
+		<key>help~iphone.nib/runtime.nib</key>
+		<data>
+		6fkz9g24s1pEob0EiT7+CdBTQeg=
 		</data>
 	</dict>
 	<key>rules</key>

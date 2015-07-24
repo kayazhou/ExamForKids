@@ -1,0 +1,1 @@
+/Users/kaisya/project/usa-xcode/ExamForKids/DerivedData/ExamForKids/Build/Intermediates/ArchiveIntermediates/ExamForKids/InstallationBuildProductsLocation/Applications/ExamForKids.app
