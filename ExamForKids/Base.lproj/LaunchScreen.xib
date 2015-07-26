@@ -43,6 +43,6 @@
         </view>
     </objects>
     <resources>
-        <image name="examForKids" width="640" height="920"/>
+        <image name="examForKids" width="375" height="667"/>
     </resources>
 </document>

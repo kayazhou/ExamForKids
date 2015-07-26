@@ -7,6 +7,7 @@
 //
 
 #import "help.h"
+#import "UserData.h"
 
 @interface help ()
 
@@ -17,6 +18,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    UIImage *image = [UIImage imageNamed:@"help1"];
+    UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
+    int imageWidth,imageHeight,height;
+    if (IPHONE6P) {
+        NSLog(@"IPHONE6P");
+        imageWidth = 414;
+        imageHeight = 666;
+        height = 60;
+    }else if (IPHONE5){
+        NSLog(@"IPHONE5");
+        imageWidth = 320;
+        imageHeight = 518;
+        height = 58;
+    }else if(IPHONE6){
+        NSLog(@"IPHONE6");
+        imageWidth = 375;
+        imageHeight = 597;
+        height = 65;
+    }else{
+        NSLog(@"IPHONEelse");
+        imageWidth = 320;
+        imageHeight = 428;
+        height = 50;
+    }
+
+    imageview.frame = CGRectMake(0, height, imageWidth, imageHeight);
+    imageview.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:imageview];
 }
 
 - (void)didReceiveMemoryWarning {
