@@ -82,64 +82,171 @@ extern BOOL underHundred;
 
 - (void)dataInit{
     BOOL style = 0;
-    int randomFirst = 0,randomSecond = 0;
+    BOOL style1 = 0;
+    BOOL isThree = 0;
+    int randomFirst = 0,randomSecond = 0,randomThird = 0;
     NSString *content,*result;
     beginDate = [NSDate date];
     NSLog(@"begin date is :%@",beginDate);
 
     tableData = [NSMutableArray arrayWithCapacity:numberOfQuestion];
     tableDataResult = [NSMutableArray arrayWithCapacity:numberOfQuestion];
+    
     for (int i = 0; i < numberOfQuestion; i++) {
-        if (subtraction && addition) {
-            style =arc4random() % 2;
-        }
-        if (subtraction && !addition) {
-            style = 1;
-        }
-        if (!subtraction && addition) {
-            style = 0;
-        }
-        if (!subtraction && !addition) {
-            style =arc4random() % 2;
-        }
-        if (underTen && underHundred) {
-            randomFirst = (arc4random() % 100) + 1;
-            if (style) {
-                randomSecond = (arc4random() % randomFirst) + 1;
+        isThree = arc4random() %2;
+        if (isThree) {
+            if (subtraction && !addition) {
+                style = 1;
+                style1 = 1;
+            }else if (!subtraction && addition) {
+                style = 0;
+                style1 = 0;
             }else{
-                randomSecond = (arc4random() % (101-randomFirst)) + 1;
+                style =arc4random() % 2;
+                style1 =arc4random() % 2;
             }
-        }
-        if (!underTen && !underHundred) {
-            randomFirst = (arc4random() % 100) + 1;
+            
+            if (underTen && underHundred) {
+                randomFirst = (arc4random() % 100) + 1;
+                if (style) {
+                    randomSecond = (arc4random() % randomFirst) + 1;
+                    if (style1) {
+                        randomThird = arc4random() % (randomFirst - randomSecond + 1) ;
+                    }else{
+                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                    }
+                }else{
+                    randomSecond = (arc4random() % (100-randomFirst)) + 1;
+                    if (style1) {
+                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                    }else{
+                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                    }
+                }
+            }
+            if (!underTen && !underHundred) {
+                randomFirst = (arc4random() % 100) + 1;
+                if (style) {
+                    randomSecond = (arc4random() % randomFirst) + 1;
+                    if (style1) {
+                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                    }else{
+                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                    }
+                }else{
+                    randomSecond = (arc4random() % (100-randomFirst)) + 1;
+                    if (style1) {
+                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                    }else{
+                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                    }
+                }
+            }
+            if (!underTen && underHundred) {
+                randomFirst = (arc4random() % 100) + 1;
+                if (style) {
+                    randomSecond = (arc4random() % randomFirst) + 1;
+                    if (style1) {
+                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                    }else{
+                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                    }
+                }else{
+                    randomSecond = (arc4random() % (100-randomFirst)) + 1;
+                    if (style1) {
+                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                    }else{
+                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                    }
+                }
+            }
+            if (underTen && !underHundred) {
+                randomFirst = (arc4random() % 10) + 1;
+                if (style) {
+                    randomSecond = (arc4random() % randomFirst) + 1;
+                    if (style1) {
+                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                    }else{
+                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                    }
+                }else{
+                    randomSecond = (arc4random() % 10) + 1;
+                    if (style1) {
+                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                    }else{
+                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                    }
+                }
+            }
             if (style) {
-                randomSecond = (arc4random() % randomFirst) + 1;
+                if (style1) {
+                    content = [NSString stringWithFormat:@"%d - %d - %d = ",randomFirst,randomSecond,randomThird];
+                    result = [NSString stringWithFormat:@"%d",randomFirst-randomSecond-randomThird];
+                }else{
+                    content = [NSString stringWithFormat:@"%d - %d + %d = ",randomFirst,randomSecond,randomThird];
+                    result = [NSString stringWithFormat:@"%d",randomFirst-randomSecond+randomThird];
+                }
             }else{
-                randomSecond = (arc4random() % (101-randomFirst)) + 1;
+                if (style1) {
+                    content = [NSString stringWithFormat:@"%d + %d - %d = ",randomFirst,randomSecond,randomThird];
+                    result = [NSString stringWithFormat:@"%d",randomFirst+randomSecond-randomThird];
+                }else{
+                    content = [NSString stringWithFormat:@"%d + %d + %d = ",randomFirst,randomSecond,randomThird];
+                    result = [NSString stringWithFormat:@"%d",randomFirst+randomSecond+randomThird];
+                }
             }
-        }
-        if (!underTen && underHundred) {
-            randomFirst = (arc4random() % 100) + 1;
-            if (style) {
-                randomSecond = (arc4random() % randomFirst) + 1;
-            }else{
-                randomSecond = (arc4random() % (101-randomFirst)) + 1;
-            }
-        }
-        if (underTen && !underHundred) {
-            randomFirst = (arc4random() % 10) + 1;
-            if (style) {
-                randomSecond = (arc4random() % randomFirst) + 1;
-            }else{
-                randomSecond = (arc4random() % 10) + 1;
-            }
-        }
-        if (style) {
-            content = [NSString stringWithFormat:@"%d - %d = ",randomFirst,randomSecond];
-            result = [NSString stringWithFormat:@"%d",randomFirst-randomSecond];
         }else{
-            content = [NSString stringWithFormat:@"%d + %d = ",randomFirst,randomSecond];
-            result = [NSString stringWithFormat:@"%d",randomFirst+randomSecond];
+            if (subtraction && addition) {
+                style =arc4random() % 2;
+            }
+            if (subtraction && !addition) {
+                style = 1;
+            }
+            if (!subtraction && addition) {
+                style = 0;
+            }
+            if (!subtraction && !addition) {
+                style =arc4random() % 2;
+            }
+            if (underTen && underHundred) {
+                randomFirst = (arc4random() % 100) + 1;
+                if (style) {
+                    randomSecond = (arc4random() % randomFirst) + 1;
+                }else{
+                    randomSecond = (arc4random() % (101-randomFirst)) + 1;
+                }
+            }
+            if (!underTen && !underHundred) {
+                randomFirst = (arc4random() % 100) + 1;
+                if (style) {
+                    randomSecond = (arc4random() % randomFirst) + 1;
+                }else{
+                    randomSecond = (arc4random() % (101-randomFirst)) + 1;
+                }
+            }
+            if (!underTen && underHundred) {
+                randomFirst = (arc4random() % 100) + 1;
+                if (style) {
+                    randomSecond = (arc4random() % randomFirst) + 1;
+                }else{
+                    randomSecond = (arc4random() % (101-randomFirst)) + 1;
+                }
+            }
+            if (underTen && !underHundred) {
+                randomFirst = (arc4random() % 10) + 1;
+                if (style) {
+                    randomSecond = (arc4random() % randomFirst) + 1;
+                }else{
+                    randomSecond = (arc4random() % 10) + 1;
+                }
+            }
+            if (style) {
+                content = [NSString stringWithFormat:@"%d - %d = ",randomFirst,randomSecond];
+                result = [NSString stringWithFormat:@"%d",randomFirst-randomSecond];
+            }else{
+                content = [NSString stringWithFormat:@"%d + %d = ",randomFirst,randomSecond];
+                result = [NSString stringWithFormat:@"%d",randomFirst+randomSecond];
+            }
         }
 
         [tableData addObject:content];
