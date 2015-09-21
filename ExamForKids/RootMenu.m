@@ -254,10 +254,10 @@ extern BOOL underHundred;
         isThree = arc4random() %2;
         if (isThree) {
             if (subtraction && !addition) {
-                style = 1;
+                style = 1;//减法
                 style1 = 1;
             }else if (!subtraction && addition) {
-                style = 0;
+                style = 0;//加法
                 style1 = 0;
             }else{
                 style =arc4random() % 2;
@@ -269,16 +269,16 @@ extern BOOL underHundred;
                 if (style) {
                     randomSecond = (arc4random() % randomFirst) + 1;
                     if (style1) {
-                        randomThird = arc4random() % (randomFirst - randomSecond + 1) ;
+                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (100 - (randomFirst - randomSecond));
                     }
                 }else{
                     randomSecond = (arc4random() % (100-randomFirst)) + 1;
                     if (style1) {
-                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                        randomThird = arc4random() % (randomFirst + randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (100 - (randomFirst + randomSecond));
                     }
                 }
             }
@@ -289,14 +289,14 @@ extern BOOL underHundred;
                     if (style1) {
                         randomThird = arc4random() % (randomFirst - randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (100 - (randomFirst - randomSecond));
                     }
                 }else{
                     randomSecond = (arc4random() % (100-randomFirst)) + 1;
                     if (style1) {
-                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                        randomThird = arc4random() % (randomFirst + randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (100 - (randomFirst + randomSecond));
                     }
                 }
             }
@@ -307,14 +307,14 @@ extern BOOL underHundred;
                     if (style1) {
                         randomThird = arc4random() % (randomFirst - randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (100 - (randomFirst - randomSecond));
                     }
                 }else{
                     randomSecond = (arc4random() % (100-randomFirst)) + 1;
                     if (style1) {
-                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                        randomThird = arc4random() % (randomFirst + randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (100 - (randomFirst + randomSecond));
                     }
                 }
             }
@@ -325,14 +325,14 @@ extern BOOL underHundred;
                     if (style1) {
                         randomThird = arc4random() % (randomFirst - randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (10 - (randomFirst - randomSecond));
                     }
                 }else{
-                    randomSecond = (arc4random() % 10) + 1;
+                    randomSecond = (arc4random() % (10-randomFirst)) + 1;
                     if (style1) {
-                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                        randomThird = arc4random() % (randomFirst + randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (10 - (randomFirst + randomSecond));
                     }
                 }
             }

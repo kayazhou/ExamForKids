@@ -111,16 +111,16 @@ extern BOOL underHundred;
                 if (style) {
                     randomSecond = (arc4random() % randomFirst) + 1;
                     if (style1) {
-                        randomThird = arc4random() % (randomFirst - randomSecond + 1) ;
+                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (100 - (randomFirst - randomSecond));
                     }
                 }else{
                     randomSecond = (arc4random() % (100-randomFirst)) + 1;
                     if (style1) {
-                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                        randomThird = arc4random() % (randomFirst + randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (100 - (randomFirst + randomSecond - 1));
                     }
                 }
             }
@@ -131,14 +131,14 @@ extern BOOL underHundred;
                     if (style1) {
                         randomThird = arc4random() % (randomFirst - randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (100 - (randomFirst - randomSecond));
                     }
                 }else{
                     randomSecond = (arc4random() % (100-randomFirst)) + 1;
                     if (style1) {
-                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                        randomThird = arc4random() % (randomFirst + randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (100 - (randomFirst + randomSecond - 1));
                     }
                 }
             }
@@ -149,14 +149,14 @@ extern BOOL underHundred;
                     if (style1) {
                         randomThird = arc4random() % (randomFirst - randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (100 - (randomFirst - randomSecond));
                     }
                 }else{
                     randomSecond = (arc4random() % (100-randomFirst)) + 1;
                     if (style1) {
-                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                        randomThird = arc4random() % (randomFirst + randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (100 - (randomFirst + randomSecond));
                     }
                 }
             }
@@ -167,32 +167,32 @@ extern BOOL underHundred;
                     if (style1) {
                         randomThird = arc4random() % (randomFirst - randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (10 - (randomFirst - randomSecond));
                     }
                 }else{
-                    randomSecond = (arc4random() % 10) + 1;
+                    randomSecond = (arc4random() % (10-randomFirst)) + 1;
                     if (style1) {
-                        randomThird = arc4random() % (randomFirst - randomSecond + 1);
+                        randomThird = arc4random() % (randomFirst + randomSecond + 1);
                     }else{
-                        randomThird = arc4random() % (100 - randomFirst - randomSecond);
+                        randomThird = arc4random() % (10 - (randomFirst + randomSecond));
                     }
                 }
             }
             if (style) {
                 if (style1) {
                     content = [NSString stringWithFormat:@"%d - %d - %d = ",randomFirst,randomSecond,randomThird];
-                    result = [NSString stringWithFormat:@"%d",randomFirst-randomSecond-randomThird];
+                    result = [NSString stringWithFormat:@"%d - %d - %d = %d",randomFirst,randomSecond,randomThird,randomFirst-randomSecond-randomThird];
                 }else{
                     content = [NSString stringWithFormat:@"%d - %d + %d = ",randomFirst,randomSecond,randomThird];
-                    result = [NSString stringWithFormat:@"%d",randomFirst-randomSecond+randomThird];
+                    result = [NSString stringWithFormat:@"%d - %d + %d = %d",randomFirst,randomSecond,randomThird,randomFirst-randomSecond+randomThird];
                 }
             }else{
                 if (style1) {
                     content = [NSString stringWithFormat:@"%d + %d - %d = ",randomFirst,randomSecond,randomThird];
-                    result = [NSString stringWithFormat:@"%d",randomFirst+randomSecond-randomThird];
+                    result = [NSString stringWithFormat:@"%d + %d - %d = %d",randomFirst,randomSecond,randomThird,randomFirst+randomSecond-randomThird];
                 }else{
                     content = [NSString stringWithFormat:@"%d + %d + %d = ",randomFirst,randomSecond,randomThird];
-                    result = [NSString stringWithFormat:@"%d",randomFirst+randomSecond+randomThird];
+                    result = [NSString stringWithFormat:@"%d + %d + %d = %d",randomFirst,randomSecond,randomThird,randomFirst+randomSecond+randomThird];
                 }
             }
         }else{
@@ -242,10 +242,10 @@ extern BOOL underHundred;
             }
             if (style) {
                 content = [NSString stringWithFormat:@"%d - %d = ",randomFirst,randomSecond];
-                result = [NSString stringWithFormat:@"%d",randomFirst-randomSecond];
+                result = [NSString stringWithFormat:@"%d - %d = %d",randomFirst,randomSecond,randomFirst-randomSecond];
             }else{
                 content = [NSString stringWithFormat:@"%d + %d = ",randomFirst,randomSecond];
-                result = [NSString stringWithFormat:@"%d",randomFirst+randomSecond];
+                result = [NSString stringWithFormat:@"%d + %d = %d",randomFirst,randomSecond,randomFirst+randomSecond];
             }
         }
 
